@@ -33,6 +33,7 @@ _.so
 # Go workspace file
 
 go.work
+/storage/logs/*
 
 ### VisualStudioCode
 

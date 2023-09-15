@@ -5,6 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/pprof"
 	"github.com/shiv122/go-test/config"
 	"github.com/shiv122/go-test/database"
+	"github.com/shiv122/go-test/middleware"
 	"github.com/shiv122/go-test/routes"
 )
 
@@ -14,6 +15,8 @@ func main() {
 	app := fiber.New()
 
 	app.Use(pprof.New())
+
+	app.Use(middleware.Profiler())
 
 	app.Use(pprof.New(pprof.Config{Prefix: "/debug/pprof/"}))
 	// Initialize and connect to the database

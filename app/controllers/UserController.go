@@ -11,7 +11,9 @@ func (uc *UserController) GetUsers(c *fiber.Ctx) error {
 
 	var userRepo = new(repositories.UserRepository)
 
-	users, err := userRepo.GetPaginatedUsers(c.QueryInt("page", 1), c.QueryInt("pageSize", 5))
+	// users, err := userRepo.GetPaginatedUsers(c.QueryInt("page", 1), c.QueryInt("pageSize", 5))
+
+	users, err := userRepo.GetAllUsers()
 
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString(err.Error())
